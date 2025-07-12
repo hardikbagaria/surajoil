@@ -143,6 +143,7 @@
         const message = document.getElementById('message').value.trim();
         const phno = document.getElementById('phone').value.trim();
         const data = { name, email, phno, message };
+        console.log(data);
 
         try {
         const response = await fetch('/submit-form', {

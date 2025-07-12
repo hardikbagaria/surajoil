@@ -6,6 +6,8 @@ const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+// Middleware to parse JSON bodies
+app.use(express.json());
 // Redirect .html URLs to clean URLs
 app.use((req, res, next) => {
   if (req.url === '/index') {
