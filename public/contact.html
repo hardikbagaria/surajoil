@@ -56,8 +56,40 @@
       </ul>
     </div>
   </nav>
+  <div class="container py-4">
+    <h2 class="text-center mb-4">Contact Us</h2>
+      <form id="contact-form">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" required placeholder="Your Name">
+        </div>
 
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required placeholder="you@example.com">
+        </div>
 
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="phone"
+            name="phno"
+            required
+            maxlength="10"
+            placeholder="Enter 10-digit phone number"
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" name="message" rows="4" placeholder="How can we help you?"></textarea>
+        </div>
+
+        <button type="submit" class="btn text-white" style="background-color: var(--dark-color);">Send</button>
+      </form>
+  </div>
 
   <footer class="bg-dark text-white pt-4 mt-5">
     <div class="container">
@@ -102,5 +134,36 @@
       </div>
     </div>
   </footer>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const phno = document.getElementById('phone').value.trim();
+        const data = { name, email, phno, message };
+
+        try {
+        const response = await fetch('/submit-form', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            alert('Form submitted and logged to server!');
+            this.reset();
+        } else {
+            alert('Failed to submit form.');
+        }
+        } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('Error connecting to server.');
+        }
+    });
+    </script>
 </body>
 </html>

@@ -60,6 +60,18 @@ app.get(`/api/items/:category`, (req, res) => {
   });
   db.close();
 });
+app.post('/submit-form', (req, res) => {
+  const { name, email, phno, message } = req.body;
+
+  console.log('📩 New Submission from Contact Form:');
+  console.log('Name:', name);
+  console.log('Email:', email);
+  console.log('Phone Number', phno);
+  console.log('Message:', message);
+  console.log('---------------------------');
+
+  res.status(200).send({ message: 'Received' });
+});
 // Serve static assets (CSS, JS, images, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
 // 404 handler
