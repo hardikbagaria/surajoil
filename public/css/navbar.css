@@ -1,0 +1,82 @@
+:root {
+  --main-color: #F7F7F2;
+  --accent-color: #F7F7F2;
+  --dark-color: #261C15;
+}
+
+body {
+  background-color: var(--accent-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header-info {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 8px 15px;
+  text-align: center;
+  font-size: 0.9rem;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  word-break: break-word;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  background-color: var(--main-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand,
+.nav-link {
+  color: black !important;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Nav Tabs inside Navbar */
+.nav-tabs {
+  border: none;
+  gap: 10px;
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: var(--main-color);
+  border-bottom: 2px solid black;
+  color: black !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .navbar .container-fluid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .navbar .nav-tabs {
+    flex-wrap: wrap;
+    margin-top: 0;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .nav-tabs .nav-item {
+    flex: 1 1 auto;
+  }
+
+  .nav-tabs .nav-link {
+    text-align: center;
+    width: 100%;
+  }
+}

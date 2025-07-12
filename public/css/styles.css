@@ -1,0 +1,114 @@
+:root {
+  --main-color: #F7F7F2;
+  --accent-color: #F7F7F2;
+  --dark-color: #261C15;
+}
+
+body {
+  background-color: var(--accent-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Information */
+.header-info {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 8px 15px;
+  text-align: center;
+  font-size: 0.9rem;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Catalog Layout */
+.tab-content {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.catalog-item {
+  transition: transform 0.3s ease;
+}
+
+.catalog-item:hover {
+  transform: scale(1.05);
+}
+
+/* Navbar Styling (optional: only if you still use a navbar) */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  background-color: var(--main-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand,
+.nav-link {
+  color: black !important;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .navbar .container-fluid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .nav-tabs {
+    flex-wrap: wrap;
+    margin-top: 0;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .nav-tabs .nav-item {
+    flex: 1 1 auto;
+  }
+
+  .nav-tabs .nav-link {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  transition: text-decoration 0.3s;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  border-radius: 50%;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 9999;
+  transition: transform 0.3s ease;
+}
+.whatsapp-button:hover {
+  transform: scale(1.1);
+}
+.whatsapp-button img {
+  width: 32px;
+  height: 32px;
+}
