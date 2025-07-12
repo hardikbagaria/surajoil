@@ -21,6 +21,7 @@ app.use((req, res, next) => {
 });
 
 
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 // ✅ Utility: Serve HTML file with optional script injection
 function serveHtmlWithInjection(res, filename) {
